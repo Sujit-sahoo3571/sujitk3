@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<string.h>
+#include<conio.h>
+#include<graphics.h>
+#include<stdlib.h>
+#include<dos.h>
+void main ()
+  { char name[6][10]={"SUJIT","AJIT","RAJIT","RABINDRA","URMILA","FAMILY"};
+  int gd= DETECT,gm; 
+  int i,font=5,size=10,dir=2,count=1;clrscr();
+//randomize();
+  initgraph(&gd,&gm,"c://TURBOC3//BGI");
+ setbkcolor(15);
+  while(!kbhit())
+  {  //  outtextxy(random(640),random(480),"sujit");
+
+   for(i=0;i<6;i++)
+   {  setcolor(random(15));
+    settextstyle(random(font),random(dir),random(size));
+	   outtextxy(random(640),random(480),name[i]);
+	   count++;
+	   if(count == 50)
+	   {getch();
+	   count=1;
+	   cleardevice();
+	  }
+   }
+    delay(50);
+ }
+  getch();
+  }
